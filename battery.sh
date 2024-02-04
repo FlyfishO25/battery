@@ -459,8 +459,8 @@ if [[ "$action" == "maintain_synchronous" ]]; then
 	    disable_charging
 	    change_magsafe_led_color "green"
 
-	elif [[ "$battery_percentage" -lt "$setting - 10" && "$is_charging" == "disabled" ]]; then
-
+	elif [[ "$battery_percentage" -lt "$(($setting - 10))" && "$is_charging" == "disabled" ]]; then
+            log "($setting - 10)"
 	    log "Charge below $setting"
 	    enable_charging
 	    change_magsafe_led_color "orange"
