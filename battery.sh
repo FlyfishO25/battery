@@ -447,12 +447,6 @@ if [[ "$action" == "maintain_synchronous" ]]; then
 
     log "Charging to and maintaining at $setting% from $battery_percentage%"
 
-    is_charging=$(get_smc_charging_status)
-    magsafe_color=$(get_smc_magsafe_color)
-    if [[ "$magsafe_color" == "orange" && "$is_charging" == "disabled" ]]; then
-        change_magsafe_led_color "green"
-    fi
-
     # Loop until battery percent is exceeded
     while true; do
 
